@@ -670,6 +670,8 @@ class Panel(ScreenPanel):
         homed = lambda pos, sensor: (arrow,arrow,sensor) if filament_pos > pos else (home,space,sensor) if filament_pos == pos else (space,space,sensor)
         nozz  = lambda pos: (arrow,arrow,arrow) if filament_pos == pos else (space,gate,' ')
         trig  = lambda name, sensor: re.sub(r'[a-zA-Z◯]', '●', name) if self._check_sensor(sensor) else name        
+        prop_dir = lambda: 'N' if abs(self._check_sensor(self.SENSOR_PROPORTIONAL)) < 0.2 else ('C' if self._check_sensor(self.SENSOR_PROPORTIONAL) > 0 else 'T')
+        proportional = lambda: (prop_dir(), abs(int(self._check_sensor(self.SENSOR_PROPORTIONAL)*100)))
         bseg = 4 + 2 * sum(not self._has_sensor(sensor) for sensor in [self.ENDSTOP_ENCODER, self.ENDSTOP_GATE, self.SENSOR_PROPORTIONAL, self.ENDSTOP_EXTRUDER, self.ENDSTOP_TOOLHEAD]) - (tool == self.TOOL_GATE_BYPASS)
 
         t_str   = ("T%s " % str(tool))[:3] if tool >= 0 else "BYPASS " if tool == self.TOOL_GATE_BYPASS else "T? "
@@ -677,7 +679,7 @@ class Panel(ScreenPanel):
         gs_str  = "{0}{2}{1}{1}{1}".format(*homed(self.FILAMENT_POS_HOMED_GATE, trig(gs, self.ENDSTOP_GATE))) if self._has_sensor(self.ENDSTOP_GATE) else ""
         en_str  = "En{0}{0}".format(past(self.FILAMENT_POS_IN_BOWDEN if gate_homing_endstop == self.ENDSTOP_GATE else self.FILAMENT_POS_START_BOWDEN)) if self._has_sensor(self.ENDSTOP_ENCODER) else ""
         bowden1 = "{0}".format(past(self.FILAMENT_POS_IN_BOWDEN)) * bseg
-        ps_str = "[{0:02d}]".format(int(self._check_sensor(self.SENSOR_PROPORTIONAL)*100))
+        ps_str = "[{0}{1:02d}]".format(*proportional())
         bowden2 = "{0}".format(past(self.FILAMENT_POS_END_BOWDEN)) * bseg
         es_str  = "{0}{2}{1}{1}{1}".format(*homed(self.FILAMENT_POS_HOMED_ENTRY, trig(es, self.ENDSTOP_EXTRUDER))) if self._has_sensor(self.ENDSTOP_EXTRUDER) else ""
         ex_str  = "{0}{2}{1}{1}{1}".format(*homed(self.FILAMENT_POS_HOMED_EXTRUDER, "Ex"))
