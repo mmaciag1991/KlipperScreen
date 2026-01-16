@@ -1372,7 +1372,7 @@ class KlipperScreen(Gtk.Window):
     def _get_keyboard(self, input_purpose):
         if input_purpose in self.keyboard_cache:
             return self.keyboard_cache[input_purpose]
-        k = self.keyboard_cache[input_purpose] = Keyboard(self, lambda *args, **kwargs: None, purpose=input_purpose)
+        k = self.keyboard_cache[input_purpose] = Keyboard(self, lambda *args, **kwargs: None, input_purpose)
         return k
 
     def _show_matchbox_keyboard(self, kbd_grid):
