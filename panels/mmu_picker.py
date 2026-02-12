@@ -97,9 +97,16 @@ class Panel(ScreenPanel):
         for i in range(num_tools):
             t_map = tool_map[i]
             gate = t_map['gate']
+            color_str = gate_color[gate]
+            if color_str and len(color_str) == 8:
+                try:
+                    int(color_str, 16)
+                    color_str = color_str[:6]
+                except ValueError:
+                    pass
             color = Gdk.RGBA()
-            if not Gdk.RGBA.parse(color, gate_color[gate]):
-                Gdk.RGBA.parse(color, '#' + gate_color[gate])
+            if not Gdk.RGBA.parse(color, color_str if color_str else ""):
+                Gdk.RGBA.parse(color, '#' + color_str if color_str else "")
 
             gate_str = (f"Gate #{t_map['gate']}")
             alt_gate_str = ''

@@ -326,9 +326,15 @@ class Panel(ScreenPanel):
         return tool_str
 
     def get_color_details(self, gate_color):
+        if gate_color and len(gate_color) == 8:
+            try:
+                int(gate_color, 16)
+                gate_color = gate_color[:6]
+            except ValueError:
+                pass
         color = Gdk.RGBA()
-        if not Gdk.RGBA.parse(color, gate_color):
-            Gdk.RGBA.parse(color, '#' + gate_color)
+        if not Gdk.RGBA.parse(color, gate_color if gate_color else ""):
+            Gdk.RGBA.parse(color, '#' + gate_color if gate_color else "")
         return color
 
     # gate_tool_map = [ { 'tools': <list of tools mapped to this gate> } ]
@@ -479,4 +485,3 @@ class Panel(ScreenPanel):
         self._screen.remove_keyboard()
         self._screen.set_focus(None)
         self.labels['layers'].set_current_page(0) # Gate list layer
-
