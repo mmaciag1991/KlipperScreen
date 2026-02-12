@@ -108,7 +108,7 @@ class Panel(ScreenPanel):
         #count = sum(bool(self.evaluate_enable(i[next(iter(i))]['enable'])) for i in self.items) # Happy Hare: Don't count disabled items it show_disabled
         # Happy Hare ^^^
 
-        scale = 1.1 if 12 < count <= 16 else None  # hack to fit a 4th row
+        scale = 1.08 if 12 < count <= 16 else None  # hack to fit a 4th row
         for i in range(len(self.items)):
             key = list(self.items[i])[0]
             item = self.items[i][key]
