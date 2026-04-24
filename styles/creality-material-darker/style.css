@@ -1,0 +1,276 @@
+/* KlipperScreen – Material ULTRA DARK (OLED)
+ * Based on Material-darker by Alfredo Monclus
+ * Modified for near-black / OLED look
+ */
+
+/* ===== COLORS ===== */
+@define-color color_1 #e0e0e0;
+@define-color color_2 #2196f3;
+@define-color color_3 #fb8c00;
+@define-color color_4 #9E9E9E;
+
+@define-color color_5 #050505;
+
+@define-color background-color_2 #080808;
+@define-color background-color_3 #121212;
+@define-color background-color_4 #0b0b0b;
+@define-color background-color_5 #2f5631;
+@define-color background-color_6 #006064;
+@define-color background-color_7 #1a1a1a;
+@define-color background-color_8 #006412;
+@define-color background-color_9 #EF6C00;
+@define-color background-color_10 #B71C1C;
+@define-color background-color_12 #f9b274;
+@define-color background-color_13 #CF6679;
+@define-color background-color_14 #030303;
+
+@define-color border-color_6 #a2a2a2;
+@define-color border-color_7 #101010;
+
+/* ===== GLOBAL ===== */
+* {
+    color: #e0e0e0;
+    font-family: RobotoMedium;
+}
+
+junction,
+list row,
+treeview.view,
+window {
+    background-color: #050505;
+}
+
+/* ===== BUTTONS ===== */
+button {
+    background-color: #080808;
+}
+
+button:active {
+    background-color: #121212;
+}
+
+.button_active {
+    border-color: #121212;
+    border-style: solid;
+    background-color: #121212;
+}
+
+button.color1,
+button.color2,
+button.color3,
+button.color4 {
+    background-color: #0b0b0b;
+    border-color: #0b0b0b;
+    border-radius: .25em;
+    padding-top: 0.4em;
+}
+
+button.color1:active,
+button.color2:active,
+button.color3:active,
+button.color4:active,
+button.update:active,
+button.invalid:active,
+.dialog button:active {
+    border-style: none;
+    background-color: #121212;
+}
+
+.active image,
+button.update {
+    color: #2196f3;
+    background-color: #050505;
+    border-color: #2196f3;
+    border-radius: .5em;
+    border-width: .1em;
+}
+
+button.invalid {
+    color: #fb8c00;
+    background-color: #050505;
+    border-color: #fb8c00;
+    border-radius: .5em;
+    border-width: .1em;
+}
+
+/* ===== MENUS ===== */
+menu,
+menuitem,
+combobox button,
+combobox arrow,
+combobox menuitem {
+    background-color: #0b0b0b;
+    border-color: #050505;
+}
+
+/* ===== SWITCH / CHECK ===== */
+treeview.view check,
+switch {
+    background-color: #080808;
+}
+
+treeview.view check:checked,
+switch:checked {
+    background-color: #2f5631;
+}
+
+treeview.view check:checked {
+    -gtk-icon-source: url("./styles/material-darker/images/complete.svg");
+}
+
+/* ===== TEXT ===== */
+label {
+    color: #e0e0e0;
+}
+
+textview .time {
+    color: #9E9E9E;
+}
+
+/* ===== SLIDERS ===== */
+trough {
+    background-color: #080808;
+}
+
+trough highlight,
+trough progress {
+    background-color: #2f5631;
+}
+
+scale-mark {
+    color: #e0e0e0;
+}
+
+/* ===== SCROLLBAR ===== */
+scrollbar,
+scrollbar button,
+scrollbar trough {
+    background-color: #050505;
+}
+
+scrollbar slider {
+    background-color: #101010;
+}
+
+/* ===== DEVICES ===== */
+.active_device {
+    background-color: #080808;
+}
+
+/* ===== DIALOGS ===== */
+.dialog {
+    border: 0;
+    background-color: #050505;
+}
+
+.dialog button {
+    background-color: #0b0b0b;
+    border-radius: .25em;
+}
+
+.dialog-error {
+    border-bottom-color: #CF6679;
+}
+
+.dialog-warning {
+    border-bottom-color: #f9b274;
+}
+
+.dialog-info {
+    border-bottom-color: @color4;
+}
+
+.dialog-default {
+    border-bottom-color: @color3;
+}
+
+.dialog-secondary {
+     border-bottom-color: @color2;
+}
+
+.dialog-primary {
+     border-bottom-color: @color1;
+}
+
+/* ===== TOGGLES ===== */
+.horizontal_togglebuttons {
+    border-color: #1a1a1a;
+    border-width: .1em;
+    background-color: #0b0b0b;
+}
+
+.horizontal_togglebuttons_active {
+    background-color: #1a1a1a;
+}
+
+/* ===== FAN ===== */
+.fan_slider {
+    color: #e0e0e0;
+}
+
+/* ===== POPUPS ===== */
+.message_popup {
+    border-bottom-color: #e0e0e0;
+}
+
+.message_popup_echo,
+.message_popup_echo button {
+    background-color: #006412;
+}
+
+.message_popup_warning,
+.message_popup_warning button {
+    background-color: #EF6C00;
+}
+
+.message_popup_error,
+.message_popup_error button {
+    background-color: #B71C1C;
+}
+
+/* ===== NUMPAD ===== */
+.numpad_key {
+    border-color: #1a1a1a;
+    background-color: #0b0b0b;
+}
+
+/* ===== PRINTING ===== */
+.printing
+
+
+
+/**/
+/**/
+
+.tempbutton_top {
+    border-color: white;
+}
+
+.tempbutton, .tempbutton_bottom {
+    border-color: white;
+    border-top-color: #ccc;
+}
+
+.distbutton_active {
+    background-color: #20303D;
+}
+
+.distbutton_top {
+    border-color: white;
+}
+
+.distbutton {
+    border-color: white;
+    border-left-color: #ccc;
+}
+
+.distbutton_bottom {
+    border-color: white;
+    border-left-color: #ccc;
+}
+
+.graph_label_laser_1 {border-width: 0em; border-style: solid; background-color:#8B0000;}
+.graph_label_laser_2 {border-width: 0em; border-style: solid; background-color:#8B0000;}
+.graph_label_laser_3 {border-width: 0em; border-style: solid; background-color:#8B0000;}
+.graph_label_laser_4 {border-width: 0em; border-style: solid; background-color:#8B0000;}
+.graph_label_laser_5 {border-width: 0em; border-style: solid; background-color:#8B0000;}

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<svg width="720" height="720" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <symbol height="720" id="svg_58" version="1.1" width="720" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+   <defs>
+    <symbol height="800px" id="svg_52" viewBox="0 0 72 72" width="800px" xmlns="http://www.w3.org/2000/svg">
+     <g id="svg_57">
+      <path d="m31.39,26.72c0,0 9.23,-1.82 8.42,-9.2c-1.35,-12.26 -1.47,-10.42 -1.47,-10.42l-5.53,1.01c0,0 3.19,13.59 -1.42,18.61z" fill="#92d3f5"/>
+      <path d="m34.54,7.04c-8.14,0 -14.75,7.49 -14.75,16.74l0,16.39l29.5,0" fill="#92d3f5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <rect fill="#d0cfce" height="22.09" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="4" x="26.83" y="44.5"/>
+      <rect fill="#d0cfce" height="16.48" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="4" x="41.33" y="44.5"/>
+      <path d="m34.54,7.56c0,0 15.32,0.55 15.91,13.88c0.96,22.14 0.06,18.92 0.06,18.92l-9.32,-0.19c0,0 1.43,-25.04 -6.65,-32.61z" fill="#61b2e4"/>
+      <rect fill="#61b2e4" height="3.08" width="11.83" x="43.33" y="40.79"/>
+      <rect fill="#92d3f5" height="3.08" width="27" x="16.34" y="40.79"/>
+     </g>
+     <g id="svg_56"/>
+     <g id="svg_55"/>
+     <g id="svg_54"/>
+     <g id="svg_53">
+      <path d="m34.54,7.04c-8.14,0 -14.75,7.49 -14.75,16.74l0,16.39l29.5,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <rect fill="none" height="22.09" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="4" x="26.83" y="44.5"/>
+      <rect fill="none" height="16.48" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" width="4" x="41.33" y="44.5"/>
+      <path d="m25.81,19.06" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path d="m35.25,7.04c8.15,0 14.75,7.49 14.75,16.74l0,7.39" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+      <polygon fill="none" points="16,44.5 45.5309,44.5 45.9063,44.5 56,44.5 56,40.1667 45.9063,40.1667 45.4999,40.1667 16,40.1667" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+     </g>
+    </symbol>
+    <symbol height="800px" id="svg_47" viewBox="0 0 16 16" width="800px" xmlns="http://www.w3.org/2000/svg">
+     <path d="m11.48,3.11a6,6 0 0 0 -8.37,8.37l8.37,-8.37zm1.41,1.41l-8.37,8.37a6,6 0 0 0 8.37,-8.37zm-4.89,-4.52a8,8 0 1 1 0,16a8,8 0 0 1 0,-16z" fill-rule="evenodd"/>
+    </symbol>
+   </defs>
+   <g class="layer">
+    <title>Layer 1</title>
+    <use fill="#999999" id="svg_51" transform="matrix(0.962668 0 0 0.996005 -49.1638 1618.49)" x="40.44" xlink:href="#svg_52" y="-1671"/>
+    <rect fill="#FF0000" height="0" id="svg_50" stroke="#000000" width="0" x="-66" y="73"/>
+    <rect fill="#FF0000" height="0" id="svg_49" stroke="#000000" width="0" x="30" y="465"/>
+    <rect fill="#FF0000" height="0" id="svg_48" stroke="#000000" width="0" x="-159" y="70"/>
+    <use fill="#ff0000" id="svg_46" stroke="#ffffff" stroke-width="0.3" transform="matrix(0.740405 0 0 0.697379 1076.35 672.93)" x="-969.09" xlink:href="#svg_47" y="-758.39"/>
+   </g>
+  </symbol>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <use id="svg_59" transform="matrix(0.891925 0 0 1.01835 -122.396 17.9044)" x="-10.63" xlink:href="#svg_58" y="-33.31"/>
+ </g>
+</svg>

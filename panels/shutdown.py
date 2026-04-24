@@ -34,25 +34,27 @@ class Panel(ScreenPanel):
         lock_screen = self._gtk.Button("lock", _("Lock"), "color3")
         lock_screen.connect("clicked", self._screen.lock_screen.lock)
 
-        self.main = Gtk.Grid(row_homogeneous=True, column_homogeneous=True)
-        show_estop = self._printer and self._printer.state not in {'disconnected', 'startup', 'shutdown', 'error'}
-        show_power_shortcut = False
-        if self.ks_printer_cfg is not None and self._screen._ws.connected:
-            power_devices = self.ks_printer_cfg.get("power_devices", "")
-            if power_devices and self._printer.get_power_devices():
-                show_power_shortcut = True
+        # Nowy przycisk: Uruchom HelixScreen
+        start_helix = self._gtk.Button("helix-icon", _("Uruchom HelixScreen"), "color4")
+        start_helix.connect("clicked", self.start_helix_macro)
 
-        if show_estop and show_power_shortcut:
-            self.main.attach(estop, 0, 0, 1, 1)
-            self.main.attach(power_shortcut, 0, 1, 1, 1)
-        elif show_estop:
-            self.main.attach(estop, 0, 0, 1, 2)
-        elif show_power_shortcut:
-            self.main.attach(power_shortcut, 0, 0, 1, 2)
+
+        # Nowy przycisk: Uruchom HelixScreen
+        desktop_mode = self._gtk.Button("display", _("Desktop Mode"), "color5")
+        desktop_mode.connect("clicked", self.desktop_mode_macro)
+
+        self.main = Gtk.Grid(row_homogeneous=True, column_homogeneous=True)
+        if self._printer and self._printer.state not in {'disconnected', 'startup', 'shutdown', 'error'}:
+            self.main.attach(estop, 0, 0, 1, 3)
         self.main.attach(restart_ks, 1, 0, 1, 1)
         self.main.attach(lock_screen, 2, 0, 1, 1)
         self.main.attach(poweroff, 1, 1, 1, 1)
         self.main.attach(restart, 2, 1, 1, 1)
+
+        # Dodanie przycisku START_HELIX
+        self.main.attach(start_helix, 1, 2, 1, 1)
+        self.main.attach(desktop_mode, 2, 2, 1, 1)
+
         self.content.add(self.main)
 
     def reboot_poweroff(self, widget, method):
@@ -107,3 +109,19 @@ class Panel(ScreenPanel):
             if power_devices and self._printer.get_power_devices():
                 logging.info(f"Turning off associated power devices: {power_devices}")
                 self._screen.power_devices(widget=None, devices=power_devices, on=False)
+
+    # Nowa metoda do uruchamiania makra START_HELIX
+    def start_helix_macro(self, widget):
+        if self._screen._ws and self._screen._ws.connected:
+            logging.info("Uruchamianie makra START_HELIX")
+            self._screen._ws.send_method("printer.gcode.script", {"script": "START_HELIX"})
+        else:
+            logging.warning("Nie można uruchomić START_HELIX: brak połączenia z WebSocket")
+
+    # Nowa metoda do uruchamiania makra START_HELIX
+    def desktop_mode_macro(self, widget):
+        if self._screen._ws and self._screen._ws.connected:
+            logging.info("Uruchamianie makra DESKTOP_MODE")
+            self._screen._ws.send_method("printer.gcode.script", {"script": "DESKTOP_MODE"})
+        else:
+            logging.warning("Nie można uruchomić DESKTOP_MODE: brak połączenia z WebSocket")
