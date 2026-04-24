@@ -385,8 +385,8 @@ class KlipperScreen(Gtk.Window):
                     panel="general_create"
                 self.panels[panel_name] = self._load_panel(panel).Panel(self, panel_name,**kwargs)
             except Exception as e:
-                self.show_error_modal(f"Unable to load panel {panel}", f"{e}\n\n{traceback.format_exc()}")
-                
+                # self.show_error_modal(f"Unable to load panel {panel}", f"{e}\n\n{traceback.format_exc()}")
+                logging.exception(f"Unable to load panel {panel}")
             if panel_name not in self.panels:
                 try:
                     self.panels[panel_name] = self._load_panel(panel).Panel(self, title, **kwargs)
