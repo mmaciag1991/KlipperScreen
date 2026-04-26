@@ -223,7 +223,12 @@ class KlipperScreenConfig:
                 strs = ('gcode', '')
                 numbers = [f'{option}' for option in config[section] if option != 'gcode']
             elif section.startswith('menu '):
-                strs = ('name', 'icon', 'panel', 'method', 'params', 'enable', 'confirm', 'style', 'show_disabled', 'refresh_on') # Happy Hare: Added show_disabled, refresh_on
+                strs = ('name', 'icon', 'panel', 'method', 'params', 'enable', 'confirm', 'style', 'show_disabled', 'refresh_on', 'type', 'value', 'connect', 'visible', 'enable', 'method', 'panel','style',
+                        'src', 'icon', 'hexpand', 'vexpand', 'position',
+                        'button_width', 'button_height', 'v_button_width', 'v_button_height',
+                        'column_spacing', 'row_spacing', 'column_homogeneous', 'row_homogeneous',
+                        'width', 'height', 'column', 'row', 'columnspan', 'rowspan',
+                        'v_width', 'v_height', 'v_column', 'v_row', 'v_columnspan', 'v_rowspan', 'v_column_spacing','v_row_spacing') # Happy Hare: Added show_disabled, refresh_on
             elif section.startswith('graph')\
                     or section.startswith('displayed_macros')\
                     or section.startswith('spoolman'):
