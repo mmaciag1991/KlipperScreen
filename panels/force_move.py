@@ -95,28 +95,28 @@ class Panel(ScreenPanel):
         adjust.set_hexpand(False)
         grid = Gtk.Grid()
         if self._screen.vertical_mode:
-            if self._screen.lang_ltr:
-                grid.attach(self.buttons['x+'], 2, 1, 1, 1)
-                grid.attach(self.buttons['x-'], 0, 1, 1, 1)
-                grid.attach(self.buttons['z+'], 2, 2, 1, 1)
-                grid.attach(self.buttons['z-'], 0, 2, 1, 1)
-            else:
-                grid.attach(self.buttons['x+'], 0, 1, 1, 1)
-                grid.attach(self.buttons['x-'], 2, 1, 1, 1)
-
-                grid.attach(self.buttons['z+'], 0, 2, 1, 1)
-                grid.attach(self.buttons['z-'], 2, 2, 1, 1)
+            # if self._screen.lang_ltr:
+            grid.attach(self.buttons['x+'], 2, 1, 1, 1)
+            grid.attach(self.buttons['x-'], 0, 1, 1, 1)
+            grid.attach(self.buttons['z+'], 2, 2, 1, 1)
+            grid.attach(self.buttons['z-'], 0, 2, 1, 1)
+            # else:
+            #     grid.attach(self.buttons['x+'], 0, 1, 1, 1)
+            #     grid.attach(self.buttons['x-'], 2, 1, 1, 1)
+            # 
+            #     grid.attach(self.buttons['z+'], 0, 2, 1, 1)
+            #     grid.attach(self.buttons['z-'], 2, 2, 1, 1)
             # grid.attach(adjust, 1, 2, 1, 1)
             grid.attach(self.buttons['y+'], 1, 0, 1, 1)
             grid.attach(self.buttons['y-'], 1, 1, 1, 1)
 
         else:
-            if self._screen.lang_ltr:
-                grid.attach(self.buttons['x+'], 2, 1, 1, 1)
-                grid.attach(self.buttons['x-'], 0, 1, 1, 1)
-            else:
-                grid.attach(self.buttons['x+'], 0, 1, 1, 1)
-                grid.attach(self.buttons['x-'], 2, 1, 1, 1)
+            # if self._screen.lang_ltr:
+            grid.attach(self.buttons['x+'], 2, 1, 1, 1)
+            grid.attach(self.buttons['x-'], 0, 1, 1, 1)
+            # else:
+            #     grid.attach(self.buttons['x+'], 0, 1, 1, 1)
+            #     grid.attach(self.buttons['x-'], 2, 1, 1, 1)
             grid.attach(self.buttons['y+'], 1, 0, 1, 1)
             grid.attach(self.buttons['y-'], 1, 1, 1, 1)
             if "MD_400D" in self._printer.get_gcode_macros():
@@ -132,12 +132,12 @@ class Panel(ScreenPanel):
             self.labels[i].set_direction(Gtk.TextDirection.LTR)
             self.labels[i].connect("clicked", self.change_distance, i)
             ctx = self.labels[i].get_style_context()
-            if (self._screen.lang_ltr and j == 0) or (not self._screen.lang_ltr and j == len(self.distances) - 1):
-                ctx.add_class("distbutton_top")
-            elif (not self._screen.lang_ltr and j == 0) or (self._screen.lang_ltr and j == len(self.distances) - 1):
-                ctx.add_class("distbutton_bottom")
-            else:
-                ctx.add_class("distbutton")
+            # if (self._screen.lang_ltr and j == 0) or (not self._screen.lang_ltr and j == len(self.distances) - 1):
+            #     ctx.add_class("distbutton_top")
+            # elif (not self._screen.lang_ltr and j == 0) or (self._screen.lang_ltr and j == len(self.distances) - 1):
+            #     ctx.add_class("distbutton_bottom")
+            # else:
+            ctx.add_class("distbutton")
             if i == self.distance:
                 ctx.add_class("distbutton_active")
             distgrid.attach(self.labels[i], j, 0, 1, 1)
