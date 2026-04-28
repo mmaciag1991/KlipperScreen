@@ -17,7 +17,7 @@ class Panel(ScreenPanel):
             self.init_ui()       
 
     def init_ui(self):
-        grid = self._gtk.Grid()
+        grid = Gtk.Grid()
         back_btn = self._gtk.Button("arrow-left", None, "color1", .66)
         back_btn.connect("clicked", self.on_back_clicked)
         grid.attach(back_btn, 0, 0, 1, 1)        

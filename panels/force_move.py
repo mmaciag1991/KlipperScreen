@@ -93,7 +93,7 @@ class Panel(ScreenPanel):
         adjust = self._gtk.Button("settings", None, "color2", 1, Gtk.PositionType.LEFT, 1)
         adjust.connect("clicked", self.load_menu, 'options', _('Settings'))
         adjust.set_hexpand(False)
-        grid = self._gtk.Grid()
+        grid = Gtk.Grid()
         if self._screen.vertical_mode:
             if self._screen.lang_ltr:
                 grid.attach(self.buttons['x+'], 2, 1, 1, 1)
@@ -146,11 +146,11 @@ class Panel(ScreenPanel):
             self.labels[p] = Gtk.Label()
         self.labels['move_dist'] = Gtk.Label(_("Move Distance (mm)"))
 
-        bottomgrid = self._gtk.Grid()
+        bottomgrid = Gtk.Grid()
         bottomgrid.set_direction(Gtk.TextDirection.LTR)
         bottomgrid.attach(self.labels['move_dist'], 0, 1, 1, 1)
 
-        self.labels['move_menu'] = self._gtk.Grid()
+        self.labels['move_menu'] = Gtk.Grid()
         self.labels['move_menu'].attach(grid, 0, 0, 1, 3)
         self.labels['move_menu'].attach(bottomgrid, 0, 3, 1, 1)
         self.labels['move_menu'].attach(distgrid, 0, 4, 1, 1)
@@ -233,7 +233,7 @@ class Panel(ScreenPanel):
         label.set_line_wrap(True)
         label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR)
 
-        grid = self._gtk.Grid()
+        grid = Gtk.Grid()
         grid.attach(label, 0, 0, 1, 1)
 
         buttons = [
