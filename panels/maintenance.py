@@ -9,7 +9,7 @@ class Panel(ScreenPanel):
     def __init__(self, screen, title):
         super().__init__(screen, title)
 
-        self.folder_path = "/home/pi/printer_data/resources/maintenance"
+        self.folder_path = "/home/iris/printer_data/resources/maintenance"
         self.image_files = self.load_images()
         self.current_image_index = 0
         # self.bts = self._gtk.bsidescale

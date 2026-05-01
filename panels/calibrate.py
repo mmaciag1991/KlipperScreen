@@ -16,12 +16,12 @@ class Panel(ScreenPanel):
         self._gtk = screen.gtk
         self.menu = ['move_menu']
         self.buttons = {
-            'z+': self._gtk.Button("extruder", _("Shaper calibrate"), "color3"),
-            'ALL': self._gtk.Button("z-closer", _("Calibrate All"), "color3"),
-            'home': self._gtk.Button("heat-up", _("PID calibrate"), "color4"),
-            'bed_pid': self._gtk.Button("heat-up", _("PID calibrate")+'BED', "color4"),
+            'z+': self._gtk.Button("extruder", _("Kalibracja Shapera"), "color3"),
+            'ALL': self._gtk.Button("z-closer", _("Kalibruj wszystko"), "color3"),
+            'home': self._gtk.Button("heat-up", _("Kalibracja PID"), "color4"),
+            'bed_pid': self._gtk.Button("heat-up", _("PID kalibracja")+'STÓŁ', "color4"),
             'motors_off': self._gtk.Button("z-tilt", _("Z Tilt"), "color4"),
-            'bed_mesh': self._gtk.Button("bed-level", _("Bed Mesh"), "color1"),
+            'bed_mesh': self._gtk.Button("bed-level", _("Siatka stołu"), "color1"),
         }
         self.height_map_range = ''
         self.retrying = ''
@@ -33,7 +33,7 @@ class Panel(ScreenPanel):
                            G4 P1000
                            M117 SHAPER_CALIBRATE calibrate_finish"""}
         self.buttons['z+'].connect("clicked", self._confirm_send_action,
-                                           _("Are you sure to Calibrate?"),
+                                           _("Jesteś pewien, że kalibruję?"),
                                            "printer.gcode.script", script)
 
         script = {"script": """M119
@@ -45,7 +45,7 @@ class Panel(ScreenPanel):
                        M117 Extruder PID calibrate_finish
                        M107"""}
         self.buttons['home'].connect("clicked", self._confirm_send_action,
-                                           _("Are you sure to Calibrate?"),
+                                           _("Jesteś pewien, że kalibruję?"),
                                            "printer.gcode.script", script)
         script = {"script": """M104 S150
                                 M117 QUAD_GANTRY_LEVEL
@@ -53,13 +53,13 @@ class Panel(ScreenPanel):
                                 _QUAD_GANTRY_LEVEL  horizontal_move_z=10 retry_tolerance=1 LIFT_SPEED=5                             
                                 M117 QGL calibrate_finish"""}
         self.buttons['motors_off'].connect("clicked", self._confirm_send_action,
-                                           _("Are you sure to Calibrate?"),
+                                           _("Jesteś pewien, że kalibruję?"),
                                            "printer.gcode.script", script)
         script = {"script": """
                                   calibration_all
                                   """}
         self.buttons['ALL'].connect("clicked", self._confirm_send_action,
-                                           _("Are you sure to Calibrate?"),
+                                           _("Jesteś pewien, że kalibruję?"),
                                            "printer.gcode.script", script)
 
         script = {"script": """M119
@@ -72,7 +72,7 @@ class Panel(ScreenPanel):
                                M117 Bed PID calibrate finish
                                M107"""}
         self.buttons['bed_pid'].connect("clicked", self._confirm_send_action,
-                                     _("Are you sure to Calibrate?"),
+                                     _("Jesteś pewien, że kalibruję?"),
                                      "printer.gcode.script", script)
                                      
         self.buttons['bed_mesh'].connect("clicked", self.go_to_bed_mesh)
@@ -93,7 +93,7 @@ class Panel(ScreenPanel):
         for p in ('pos_x', 'pos_y', 'pos_z'):
             self.labels[p] = Gtk.Label()
             self.labels[p].get_style_context().add_class("printing-status_message")
-        self.labels['move_dist'] = Gtk.Label(_("Move Distance (mm)"))
+        self.labels['move_dist'] = Gtk.Label(_("Odległość ruchu (mm)"))
 
         bottomgrid = Gtk.Grid()
         bottomgrid.set_direction(Gtk.TextDirection.LTR)
@@ -108,7 +108,7 @@ class Panel(ScreenPanel):
         printer_cfg = self._printer.get_config_section("printer")
         max_velocity = int(float(printer_cfg["max_velocity"]))
         if max_velocity <= 1:
-            logging.error(f"Error getting max_velocity\n{printer_cfg}")
+            logging.error(f"Błąd przy max_velocity\n{printer_cfg}")
             max_velocity = 50
         if "max_z_velocity" in printer_cfg:
             max_z_velocity = int(float(printer_cfg["max_z_velocity"]))
@@ -188,7 +188,7 @@ class Panel(ScreenPanel):
                 self._screen._send_action(None, "printer.gcode.script", script)
 
                 script = {"script": " "}
-                self._dialog_show(self._screen, "Calibration Failed! Problem:" + data, "printer.gcode.script", script)
+                self._dialog_show(self._screen, "Kalibracja zawiodła! Problem:" + data, "printer.gcode.script", script)
             #logging.info(f"### data {data}, action {action}")
             if "height map range:" in data:#Retrying
                 self.height_map_range = data
@@ -213,7 +213,7 @@ class Panel(ScreenPanel):
                     script = {"script": "M117 ."}
                     self._screen._send_action(None, "printer.gcode.script", script)
                     script = {"script": "save_config"}
-                    self._confirm_calibrate_action(self._screen, lcd_msg + ",  Save to Printer?\n"+self.height_map_range+"\n"+self.retrying, "printer.gcode.script", script)
+                    self._confirm_calibrate_action(self._screen, lcd_msg + ",  Zapisz na drukarnię?\n"+self.height_map_range+"\n"+self.retrying, "printer.gcode.script", script)
                     self.height_map_range = ""
                     self.retrying = ""
 
@@ -334,7 +334,7 @@ class Panel(ScreenPanel):
         name = "homing"
         disname = self._screen._config.get_menu_name("move", name)
         menuitems = self._screen._config.get_menu_items("move", name)
-        self._screen.show_popup_message(f"Make sure nothing is on the BED! ",1)
+        self._screen.show_popup_message(f"Upewnij się, że nic nie ma na BED! ",1)
         self._screen.show_panel("menu", disname, items=menuitems)
 
 
